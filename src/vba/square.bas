@@ -1,3 +1,5 @@
+Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
 Sub ColorMeL2R_T2B_Easy()
     Dim nextCell As Range
     Dim increment
@@ -42,7 +44,7 @@ Sub ColorMeL2R_T2B_Complex()
                 .ThemeColor = nextColor
                 .TintAndShade = 0.2 + ((0.1) * Random(0, 5))
             End With
-            Sleep0()
+            Sleep0 1
         Loop While False
     Next
 End Sub
@@ -50,14 +52,14 @@ End Sub
 Function isMyColorSameAsMyNeighbours(nextColor, nextCell)
 '  Location of My Neighbors in related to me:
 '    |-------------|---------------|--------------|
-'    | -1, -1(A)   |   0,-1 (B)    |   1,-1 (C)   |
+'    | -1, -1 (A)  |   0,-1 (B)    |   1,-1 (C)   |
 '    |-------------|---------------|--------------|
-'    | -1, 0  (D)  |   0,0 (Me)    |   1,0  (E)   |
+'    | -1, 0  (D)  |   0,0  (Me)   |   1,0  (E)   |
 '    |-------------|---------------|--------------|
-'    | -1, 1  (F)  |   0,1   (G)   |   1,0 (H)    |
+'    | -1, 1  (F)  |   0,1   (G)   |   1,0  (H)   |
 '    |-------------|---------------|--------------|
 
-   '  Only change color if not set 
+   '  Only change color if not set
    '         If nextCell.Interior.ThemeColor > 1 Then
    '             Exit Do
    '         End If
@@ -176,12 +178,11 @@ Function Random(min, max)
     Random = Application.WorksheetFunction.RandBetween(min, max)
 End Function
 
-Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
-Sub Sleep0( millis)
+Sub Sleep0(millis)
     #If Mac Then
-        MacScript ("delay(" & (millis/1000) & ")")
+        MacScript ("delay(" & (millis / 1000) & ")")
     #Else
         Sleep millis
     #End If
-Sub
+End Sub
