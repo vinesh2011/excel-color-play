@@ -1,7 +1,8 @@
 # excel-color-play
-Colorful interesting code for kids to start programming
-Parts of Program may not be easy to comprehend, bu still can be tweaked to get desired result.
-How to start
+Colorful interesting code for kids to start programming.
+Certain part of Program may not be easy to comprehend, bu still can be tweaked to play around.
+
+### How to start
 1. Open Microsoft Excel
 2. New SpreadSheet
 3. Save as '*.xlsm'
